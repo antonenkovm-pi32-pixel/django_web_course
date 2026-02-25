@@ -1,6 +1,9 @@
 <!-- templates/base.html -->
-<header>
+ <header style="display: flex; justify-content: center;">
+    <div>
     <a href="{% url 'home' %}">Home</a> |
     <a href="{% url 'about' %}">About</a>
+    </div>
+
 </header>
 {% block content %} {% endblock content %}

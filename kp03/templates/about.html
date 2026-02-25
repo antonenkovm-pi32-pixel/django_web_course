@@ -1,1 +1,25 @@
-<h1>Сторінка about</h1>
+<!-- templates/about.html -->
+ {% extends "base.html" %}
+ {% block content %}
+
+<head>
+    <style>
+        h1{text-align: center;}
+        h2{font-weight: bold;}
+        p{font-weight: normal;}
+        body{margin-left: 50px;
+        margin-top: 20px; }
+    </style>
+</head>
+<body>
+    
+    <h1>Резюме Антоненко Валерії</h1>
+    <h2>Skills</h2>
+    <p>Maths, Chemistry</p>
+    <h2>Languages</h2>
+    <p>English, Ukrainian</p>
+    <h2>Contacs</h2>
+    <p>Email: vlera.antonenko@gmail.com</p>
+
+</body>
+    {% endblock content %}

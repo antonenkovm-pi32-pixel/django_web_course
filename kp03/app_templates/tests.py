@@ -5,7 +5,7 @@ from django.urls import reverse
 # Create your tests here.
 class HomepageTests(SimpleTestCase):
     def test_url_exists_at_correct_location(self):
-        response = self.client.get("") # отримання відповіді від серверу
+        response = self.client.get("/") # отримання відповіді від серверу
         self.assertEqual(response.status_code, 200)
 
     def test_url_available_by_name(self):
@@ -18,7 +18,7 @@ class HomepageTests(SimpleTestCase):
 
     def test_template_content(self):
         response = self.client.get(reverse("home"))
-        self.assertContains(response, "<h1>Початкова сторінка</h1>") # перевіряємо наявність заголовку на сторінці
+        self.assertContains(response, "<h1>Valeriia Antonenko</h1>") # перевіряємо наявність заголовку на сторінці
 
 
 class AboutpageTests(SimpleTestCase):
@@ -36,4 +36,4 @@ class AboutpageTests(SimpleTestCase):
 
     def test_template_content(self):
         response = self.client.get(reverse("about"))
-        self.assertContains(response, "<h1>Сторінка about</h1>")
+        self.assertContains(response, "<h1>Резюме Антоненко Валерії</h1>")
