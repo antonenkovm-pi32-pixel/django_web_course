@@ -7,6 +7,13 @@ class PostTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.post = Post.objects.create(text="This is a test!")
+        cls.post2 = Post.objects.create(text="Test")
+
+    def test_database_as_dict(self):
+    # This returns a QuerySet of dictionaries
+        data = Post.objects.values() 
+        for row in data:
+            print(row)
 
     def test_model_content(self):
         self.assertEqual(self.post.text, "This is a test!")
