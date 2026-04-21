@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+
+
+<html>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <body>
+
+        <table style ="width: 100%">
+            <tr>
+                <th>Номер вимірювання</th>
+                <th>Текст</th>
+                <th>Дата</th>
+                <th>Температура</th>
+                <th>Тиск, мм.р.ст.</th>
+                <th>Швидкість вітру</th>
+                <th>Ймовірність опадів</th>
+                <th>ID</th>
+                <th>Автор</th>
+            </tr>
+            {% for post in post_list %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.text }}</td>
+                <td>{{ post.data }}</td>
+                <td>{{ post.temperature }}</td>
+                <td>{{ post.pressure }}</td>
+                <td>{{ post.speed }}</td>
+                <td>{{ post.probability }}</td>
+                <div class="post-entry">
+                <td><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></td>
+                <td>{{ post.author }}</td>
+                
+    </div>
+            </tr>
+            {% endfor %}
+            {% endblock content %}
+        </table>
+        
+    </body>
+</html>
