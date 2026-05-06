@@ -28,7 +28,7 @@
             </tr>
             {% for post in post_list %}
             <tr>
-                <td>{{ post.id }}</td>
+                <td><a href="{% url 'post_detail' post.pk %}">{{ post.id }}</a></td>
                 <td>{{ post.text }}</td>
                 <td>{{ post.data }}</td>
                 <td>{{ post.temperature }}</td>

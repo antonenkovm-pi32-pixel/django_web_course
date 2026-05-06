@@ -21,6 +21,5 @@ from posts.views import HomePageView, PostDetailView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('posts.urls')),
-    path('', HomePageView.as_view(), name='home.html'),
-    path('post/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
+
 ]
