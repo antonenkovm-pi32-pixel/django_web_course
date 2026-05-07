@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+<div class='post-entry'>
+    <table style ="width: 100%">
+        <tr>
+            <th>Номер вимірювання</th>
+            <th>Текст</th>
+            <th>Дата</th>
+            <th>Температура</th>
+            <th>Тиск, мм.р.ст.</th>
+            <th>Швидкість вітру</th>
+            <th>Ймовірність опадів</th>
+        </tr>
+     <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.text }}</td>
+                <td>{{ post.data }}</td>
+                <td>{{ post.temperature }}</td>
+                <td>{{ post.pressure }}</td>
+                <td>{{ post.speed }}</td>
+                <td>{{ post.probability }}</td>
+    </tr>
+    </table>
+</div>
+<p><a href="{% url 'post_edit' post.pk %}">Редагувати запис</a></p>
+<p><a href="{% url 'post_delete' post.pk %}">Видалити запис</a></p>
+
+
+{% endblock content%}
