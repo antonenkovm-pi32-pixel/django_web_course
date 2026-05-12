@@ -39,10 +39,13 @@ def weather_dashboard(request):
     if not df.empty:
         fig_temp = px.line(df, x='date', y='temperature', title='Temperature Trend, °C', markers=True)
         temp_plot = fig_temp.to_html(full_html=False)
-        fig_press = px.line(df, x='date', y='pressure', title='Pressure Trend, mmHg', markers=True)
+
+        fig_press = px.bar(df, x='date', y='pressure', title='Pressure Trend, mmHg')
         press_plot = fig_press.to_html(full_html=False)
+
         fig_hum = px.line(df, x='date', y='humidity', title='Humidity Trend, %', markers=True)
         hum_plot = fig_hum.to_html(full_html=False)
+        
         fig_speed = px.line(df, x='date', y='speed', title='Wind Speed Trend, m/s', markers=True)
         speed_plot = fig_speed.to_html(full_html=False)
     else:
