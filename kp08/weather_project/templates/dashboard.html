@@ -7,6 +7,21 @@
 <body class =bg-light>
     <div class="container mt-5">
         <form method="post">
+            {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+        {% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% for field in form %}
+    {% if field.errors %}
+        <div class="alert alert-danger">
+            {{ field.label }}: {{ field.errors|striptags }}
+        </div>
+    {% endif %}
+{% endfor %}
                     {% csrf_token %}
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="fw-bold text-primary">Weather Analytics</h1>
@@ -24,6 +39,38 @@
                     <div class="col-md-6">
                         <label class="form-label">Maximum Temperature (°C):</label>
                         {{ form.max_temp }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Minimum Pressure (mmHg):</label>
+                        {{ form.min_pressure }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Maximum Pressure (mmHg):</label>
+                        {{ form.max_pressure }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Minimum Humidity (%):</label>
+                        {{ form.min_humidity }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Maximum Humidity (%):</label>
+                        {{ form.max_humidity }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Minimum Wind Speed (m/s):</label>
+                        {{ form.min_speed }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Maximum Wind Speed (m/s):</label>
+                        {{ form.max_speed }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">First Date:</label>
+                        {{ form.first_date }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Last Date:</label>
+                        {{ form.last_date }}
                     </div>
                 </div>
             </div>
@@ -44,7 +91,7 @@
                     <div class="card shadow-sm p-2">{{ speed_plot|safe }}</div>
                 </div>
             </div>
-</form>
+
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h4 class="card-title mb-3">Measurement Log</h4> 

@@ -37,4 +37,11 @@ def weather_dashboard(request):
         fig_speed = px.line(df, x='date', y='speed', title='Wind Speed Trend, m/s', markers=True)
         speed_plot = fig_speed.to_html(full_html=False)
 
-    return render(request, 'dashboard.html', {'data': data, 'temp_plot': temp_plot, 'press_plot': press_plot, 'hum_plot': hum_plot, 'speed_plot': speed_plot})
+    context={
+        'data': data,
+        'temp_plot': temp_plot,
+        'press_plot': press_plot,
+        'hum_plot': hum_plot,
+        'speed_plot': speed_plot
+    }
+    return render(request, 'dashboard.html', context)
